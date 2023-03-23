@@ -24,20 +24,22 @@ app.get("/api/species", cors(), async (req, res) => {
   }
 });
 
-// // create the POST request
-// app.post('/api/students', cors(), async (req, res) => {
-//   const newUser = {
-//     firstname: req.body.firstname,
-//     lastname: req.body.lastname,
-//   };
-//   console.log([newUser.firstname, newUser.lastname]);
-//   const result = await db.query(
-//     'INSERT INTO students(firstname, lastname) VALUES($1, $2) RETURNING *',
-//     [newUser.firstname, newUser.lastname],
-//   );
-//   console.log(result.rows[0]);
-//   res.json(result.rows[0]);
-// });
+// // create the POST request to add data/new entry
+app.post("/api/species", cors(), async (req, res) => {
+  const newSpecies = {
+    common_name: req.body.common_name,
+    scientific_name: req.body.scientific_name,
+    num_in_wild: req.body.num_in_wild,
+    state_code: req.body.stat_code,
+  };
+  console.log([newSpecies.common_name, newSpecies.scientific_name]);
+  const result = await db.query(
+    "INSERT INTO species(common_name, species_name) VALUES($1, $2) RETURNING *",
+    [newSpecies.common_name, newSpecies.scientific_name]
+  );
+  console.log(result.rows[0]);
+  res.json(result.rows[0]);
+});
 
 // //A put request - Update a student
 // app.put('/api/students/:studentId', cors(), async (req, res) =>{
