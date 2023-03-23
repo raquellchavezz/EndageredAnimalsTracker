@@ -24,18 +24,25 @@ app.get("/api/species", cors(), async (req, res) => {
   }
 });
 
-// // create the POST request to add data/new entry
+// // create the POST request to add data/new entry say we want to add the scientific name and species
 app.post("/api/species", cors(), async (req, res) => {
   const newSpecies = {
     common_name: req.body.common_name,
     scientific_name: req.body.scientific_name,
     num_in_wild: req.body.num_in_wild,
-    state_code: req.body.stat_code,
+    stat_code: req.body.stat_code,
   };
   console.log([newSpecies.common_name, newSpecies.scientific_name]);
   const result = await db.query(
-    "INSERT INTO species(common_name, species_name) VALUES($1, $2) RETURNING *",
-    [newSpecies.common_name, newSpecies.scientific_name]
+    "INSERT INTO species(common_name, scientific_name, num_in_wild, stat_code) VALUES($1, $2) RETURNING *",
+    [
+      newSpecies.common_name,
+      newSpecies.scientific_name,
+      newSpecies.num_in_wild,
+      newSpecies.req.body.num_in_wild,
+      newSpecies.state_code,
+      newSpecies.req.body.stat_code,
+    ]
   );
   console.log(result.rows[0]);
   res.json(result.rows[0]);
