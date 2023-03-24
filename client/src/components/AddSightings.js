@@ -23,7 +23,7 @@ const AddSighting = (props) => {
     const newIndividualId = event.target.value;
     setNewSighting((sighting) => ({
       ...sighting,
-      individual_ide: newIndividualId,
+      individual_id: newIndividualId,
     }));
   };
 
@@ -123,7 +123,7 @@ const AddSighting = (props) => {
           onChange={handleEmailChange}
         />
       </fieldset>
-      {/* <button type="submit">{!student.id ? "ADD" : "SAVE"}</button> */}
+      <button type="submit">Add</button>{" "}
     </form>
   );
 };
