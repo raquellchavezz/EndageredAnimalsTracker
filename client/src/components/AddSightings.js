@@ -45,15 +45,15 @@ const AddSighting = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setNewSighting(sighting);
-    postSpecies(sighting);
+    postSighting(sighting);
   };
 
   //A function to handle the post request
-  const postSpecies = (newSpecies) => {
+  const postSighting = (newSighting) => {
     return fetch("http://localhost:8080/api/sighting/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newSpecies),
+      body: JSON.stringify(newSighting),
     })
       .then((response) => {
         return response.json();
@@ -61,50 +61,66 @@ const AddSighting = (props) => {
       .then((data) => {
         console.log("From the post in the front ", data);
         // props.saveSpecies(data);
-        setNewSighting((sighting) => [...newSpecies, data]);
+        setNewSighting((sighting) => [...newSighting, data]);
       });
   };
+
+  /*   time_sighted: "",
+    individual_id: "",
+    location: "",
+    is_healthy: "",
+    email: "", */
   return (
     <form onSubmit={handleSubmit}>
-      <label> Add a Species</label>
+      <label> Add a Sighting</label>
       <fieldset>
-        <label>Common Name</label>
+        <label>Time sighted</label>
         <input
           type="text"
           id="add-user-name"
           placeholder="First Name"
           required
-          value={sighting.common_name}
-          onChange={handleCommonChange}
+          value={sighting.time_sighted}
+          onChange={handleTimeChange}
         />
-        <label>Scientific Name</label>
+        <label> individual_id:</label>
         <input
           type="text"
           id="add-user-lastname"
           placeholder="Last Name"
           required
-          value={sighting.scientific_name}
-          onChange={handleScientificChange}
-        />
-
-        <label>Number in the wild</label>
-        <input
-          type="text"
-          id="add-user-lastname"
-          placeholder="Last Name"
-          required
-          value={sighting.num_in_wild}
-          onChange={handleNumWildChange}
+          value={sighting.individual_id}
+          onChange={handleIdChange}
         />
 
-        <label>Conservation Status Code</label>
+        <label>location</label>
         <input
           type="text"
           id="add-user-lastname"
           placeholder="Last Name"
           required
-          value={sighting.stat_code}
-          onChange={handleStatCodeChange}
+          value={sighting.location}
+          onChange={handlelocationChange}
+        />
+
+        <label>Health Status</label>
+        <input
+          type="text"
+          id="add-user-lastname"
+          placeholder="Last Name"
+          required
+          value={sighting.is_healthy}
+          onChange={handleHealthChange}
+        />
+
+        <label> email:</label>
+        <input
+          type="text"
+          id="add-user-lastname"
+          placeholder="Last Name"
+          required
+          value={sighting.email}
+          onChange={handleEmailChange}
         />
       </fieldset>
       {/* <button type="submit">{!student.id ? "ADD" : "SAVE"}</button> */}

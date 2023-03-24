@@ -53,7 +53,45 @@ app.post("/api/species/add", async (req, res) => {
   }
 });
 
-// join statememnt
+// getting sightings
+app.get("/api/sightings", cors(), async (req, res) => {
+  try {
+    const { rows: sightings } = await db.query("SELECT * FROM sightings"); //obj named rows we will call species
+    res.send(sightings); //send results of the query to front end
+  } catch (e) {
+    return res.status(400).json({ e }); //making json object with property e with value of error
+  }
+});
+
+//add a sighting form
+
+app.post("/api/sighting/add", async (req, res) => {
+  try {
+    const newSighting = {
+      time_sighted: req.body.time_sighted,
+      individual_id: req.body.individual_id,
+      location: req.body.location,
+      is_healthy: req.body.is_healthy,
+      email: req.body.email,
+    };
+    const result = await db.query(
+      "INSERT INTO sightings(time_sighted,individual_id, location, is_healthy, email) VALUES($1, $2, $3, $4, $5) RETURNING *",
+      [
+        newSighting.time_sighted,
+        newSighting.individual_id,
+        newSighting.location,
+        newSighting.is_healthy,
+        newSighting.email,
+      ]
+    );
+    console.log(result.rows[0]);
+    let response = result.rows[0];
+    res.json(response);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(400).json({ msg: e.message });
+  }
+});
 
 // //A put request - Update a student
 // app.put('/api/students/:studentId', cors(), async (req, res) =>{
