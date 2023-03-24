@@ -47,80 +47,80 @@ SET default_table_access_method = heap;
 -- Name: students; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.students (
-    id integer NOT NULL,
-    lastname character varying(255),
-    firstname character varying(255)
-);
+-- CREATE TABLE public.students (
+--     id integer NOT NULL,
+--     lastname character varying(255),
+--     firstname character varying(255)
+-- );
 
 
-ALTER TABLE public.students OWNER TO postgres;
+-- ALTER TABLE public.students OWNER TO postgres;
 
---
--- Name: students_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
+-- --
+-- -- Name: students_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- --
 
-CREATE SEQUENCE public.students_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.students_id_seq OWNER TO postgres;
-
---
--- Name: students_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.students_id_seq OWNED BY public.students.id;
+-- CREATE SEQUENCE public.students_id_seq
+--     AS integer
+--     START WITH 1
+--     INCREMENT BY 1
+--     NO MINVALUE
+--     NO MAXVALUE
+--     CACHE 1;
 
 
---
--- Name: students id; Type: DEFAULT; Schema: public; Owner: postgres
---
+-- ALTER TABLE public.students_id_seq OWNER TO postgres;
 
-ALTER TABLE ONLY public.students ALTER COLUMN id SET DEFAULT nextval('public.students_id_seq'::regclass);
+-- --
+-- -- Name: students_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- --
 
-
---
--- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.students (id, lastname, firstname) FROM stdin;
-1	Gomez	Andrea
-2	Lee	Becca
-3	Smith	Will
-4	Pond	Kate
-5	Lasso	Jamie
-7	Rodriguez	Arepa
-8	Smith	Crush
-9	Fonca	Billy
-10	Gomez	Teresa
-11	Tres	Prueba
-12	Cuatro	Prueba 
-13	Cinco	Prueba
-\.
+-- ALTER SEQUENCE public.students_id_seq OWNED BY public.students.id;
 
 
---
--- Name: students_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
+-- --
+-- -- Name: students id; Type: DEFAULT; Schema: public; Owner: postgres
+-- --
 
-SELECT pg_catalog.setval('public.students_id_seq', 13, true);
-
-
---
--- Name: students students_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.students
-    ADD CONSTRAINT students_pkey PRIMARY KEY (id);
+-- ALTER TABLE ONLY public.students ALTER COLUMN id SET DEFAULT nextval('public.students_id_seq'::regclass);
 
 
---
--- PostgreSQL database dump complete
---
+-- --
+-- -- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: postgres
+-- --
+
+-- COPY public.students (id, lastname, firstname) FROM stdin;
+-- 1	Gomez	Andrea
+-- 2	Lee	Becca
+-- 3	Smith	Will
+-- 4	Pond	Kate
+-- 5	Lasso	Jamie
+-- 7	Rodriguez	Arepa
+-- 8	Smith	Crush
+-- 9	Fonca	Billy
+-- 10	Gomez	Teresa
+-- 11	Tres	Prueba
+-- 12	Cuatro	Prueba 
+-- 13	Cinco	Prueba
+-- \.
+
+
+-- --
+-- -- Name: students_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- --
+
+-- SELECT pg_catalog.setval('public.students_id_seq', 13, true);
+
+
+-- --
+-- -- Name: students students_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- --
+
+-- ALTER TABLE ONLY public.students
+--     ADD CONSTRAINT students_pkey PRIMARY KEY (id);
+
+
+-- --
+-- -- PostgreSQL database dump complete
+-- --
 

@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Hello from My template ExpressJS" });
 });
 
-// create the get request
+// create the get request is working
 app.get("/api/species", cors(), async (req, res) => {
   try {
     const { rows: species } = await db.query("SELECT * FROM species"); //obj named rows we will call species
@@ -25,27 +25,30 @@ app.get("/api/species", cors(), async (req, res) => {
 });
 
 // // create the POST request to add data/new entry say we want to add the scientific name and species
-app.post("/api/species", cors(), async (req, res) => {
-  const newSpecies = {
-    common_name: req.body.common_name,
-    scientific_name: req.body.scientific_name,
-    num_in_wild: req.body.num_in_wild,
-    stat_code: req.body.stat_code,
-  };
-  console.log([newSpecies.common_name, newSpecies.scientific_name]);
-  const result = await db.query(
-    "INSERT INTO species(common_name, scientific_name, num_in_wild, stat_code) VALUES($1, $2) RETURNING *",
-    [
-      newSpecies.common_name,
-      newSpecies.scientific_name,
-      newSpecies.num_in_wild,
-      newSpecies.req.body.num_in_wild,
-      newSpecies.state_code,
-      newSpecies.req.body.stat_code,
-    ]
-  );
-  console.log(result.rows[0]);
-  res.json(result.rows[0]);
+app.post("/api/species/add", async (req, res) => {
+  try {
+    const newSpecies = {
+      common_name: req.body.common_name,
+      scientific_name: req.body.scientific_name,
+      num_in_wild: req.body.num_in_wild,
+      stat_code: req.body.stat_code,
+    };
+    const result = await db.query(
+      "INSERT INTO species(common_name, scientific_name, num_in_wild, stat_code) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        newSpecies.common_name,
+        newSpecies.scientific_name,
+        newSpecies.num_in_wild,
+        newSpecies.stat_code,
+      ]
+    );
+    console.log(result.rows[0]);
+    let response = result.rows[0];
+    res.json(response);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(400).json({ msg: e.message });
+  }
 });
 
 // //A put request - Update a student
