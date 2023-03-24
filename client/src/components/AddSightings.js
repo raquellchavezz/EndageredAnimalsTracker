@@ -16,7 +16,10 @@ const AddSighting = (props) => {
   //create functions that handle the event of the user typing into the form
   const handleTimeChange = (event) => {
     const newTimeChange = event.target.value;
-    setNewSighting((sighting) => ({ ...sighting, common_name: newCommonName }));
+    setNewSighting((sighting) => ({
+      ...sighting,
+      time_sighted: newTimeChange,
+    }));
   };
 
   const handleIdChange = (event) => {
@@ -83,6 +86,7 @@ const AddSighting = (props) => {
           value={sighting.time_sighted}
           onChange={handleTimeChange}
         />
+        <button type="submit">Add</button>
         <label> individual_id:</label>
         <input
           type="text"
@@ -92,6 +96,7 @@ const AddSighting = (props) => {
           value={sighting.individual_id}
           onChange={handleIdChange}
         />
+        <button type="submit">Add</button>
 
         <label>location</label>
         <input
@@ -102,6 +107,7 @@ const AddSighting = (props) => {
           value={sighting.location}
           onChange={handlelocationChange}
         />
+        <button type="submit">Add</button>
 
         <label>Health Status</label>
         <input
@@ -112,6 +118,7 @@ const AddSighting = (props) => {
           value={sighting.is_healthy}
           onChange={handleHealthChange}
         />
+        <button type="submit">Add</button>
 
         <label> email:</label>
         <input
@@ -122,8 +129,8 @@ const AddSighting = (props) => {
           value={sighting.email}
           onChange={handleEmailChange}
         />
+        <button type="submit">Add</button>
       </fieldset>
-      <button type="submit">Add</button>{" "}
     </form>
   );
 };

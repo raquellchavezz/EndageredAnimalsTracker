@@ -54,11 +54,19 @@ app.post("/api/species/add", async (req, res) => {
 });
 
 // getting sightings
-app.get("/api/sightings", cors(), async (req, res) => {
+
+//Show a list of all sightings, including the nickname of the individual sighted at each one (using a JOIN query).
+
+app.get("/api/allsightings", cors(), async (req, res) => {
   try {
-    const { rows: sightings } = await db.query("SELECT * FROM sightings"); //obj named rows we will call species
+    const { rows: sightings } = await db.query(`
+    SELECT i.nickname, s.id
+    FROM individuals i
+    JOIN species s ON i.species_id = s.id
+  `); //obj named rows we will call species
     res.send(sightings); //send results of the query to front end
   } catch (e) {
+    console.error(e);
     return res.status(400).json({ e }); //making json object with property e with value of error
   }
 });

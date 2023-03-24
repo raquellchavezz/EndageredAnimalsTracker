@@ -1,7 +1,7 @@
 //i want this to be my homepage
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-const Game = (props) => {
+const AllSightings = (props) => {
   const [allSightings, setAllSightings] = useState([]); //state for the list of sightings
 
   const loadData = () => {
@@ -21,3 +21,31 @@ const Game = (props) => {
     []
   ); // second param '
 };
+return (
+  <div>
+    <h1>Sightings Data</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nickname</th>
+          <th>Time Sighted</th>
+          <th>Location</th>
+          <th>Is Healthy</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((sighting) => (
+          <tr key={sighting.sightings_id}>
+            <td>{sighting.nickname}</td>
+            <td>{sighting.time_sighted}</td>
+            <td>{sighting.location}</td>
+            <td>{sighting.is_healthy ? "Yes" : "No"}</td>
+            <td>{sighting.email}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
+export default MyComponent;

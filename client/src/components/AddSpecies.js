@@ -71,6 +71,7 @@ const AddSpecies = (props) => {
           value={species.common_name}
           onChange={handleCommonChange}
         />
+        <button type="submit">Add</button>
         <label>Scientific Name</label>
         <input
           type="text"
@@ -80,7 +81,7 @@ const AddSpecies = (props) => {
           value={species.scientific_name}
           onChange={handleScientificChange}
         />
-
+        <button type="submit">Add</button>
         <label>Number in the wild</label>
         <input
           type="text"
@@ -90,6 +91,7 @@ const AddSpecies = (props) => {
           value={species.num_in_wild}
           onChange={handleNumWildChange}
         />
+        <button type="submit">Add</button>
 
         <label>Conservation Status Code</label>
         <input
@@ -100,6 +102,7 @@ const AddSpecies = (props) => {
           value={species.stat_code}
           onChange={handleStatCodeChange}
         />
+        <button type="submit">Add</button>
       </fieldset>
       {/* <button type="submit">{!student.id ? "ADD" : "SAVE"}</button> */}
     </form>
