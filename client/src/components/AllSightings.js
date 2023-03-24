@@ -12,4 +12,12 @@ const Game = (props) => {
         setAllSightings(data.results);
       });
   };
+  useEffect(
+    //function takes 2 params 1) thing load data which will render each time data change 2) empty array bc second param should be param of your state
+    () => {
+      //runs whenever array changes, like side effect
+      loadData(); //21 -23 first param, this func figures out what our questions are
+    },
+    []
+  ); // second param '
 };
