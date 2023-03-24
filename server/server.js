@@ -10,9 +10,9 @@ app.use(cors());
 app.use(express.json());
 
 // creates an endpoint for the route /api
-app.get("/", (req, res) => {
-  res.json({ message: "Hello from My template ExpressJS" });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "Hello from My template ExpressJS" });
+// });
 
 // creates an endpoint for the route /api
 
@@ -57,12 +57,12 @@ app.post("/api/species/add", async (req, res) => {
 
 //Show a list of all sightings, including the nickname of the individual sighted at each one (using a JOIN query).
 
-app.get("/api/allsightings", cors(), async (req, res) => {
+app.get("/", cors(), async (req, res) => {
   try {
     const { rows: sightings } = await db.query(`
-    SELECT i.nickname, s.id
-    FROM individuals i
-    JOIN species s ON i.species_id = s.id
+    SELECT s.sightings_id, s.time_sighted, i.nickname, s.location, s.is_healthy, s.email
+    FROM sightings s
+    JOIN individuals i ON s.individual_id = i.individual_id;
   `); //obj named rows we will call species
     res.send(sightings); //send results of the query to front end
   } catch (e) {

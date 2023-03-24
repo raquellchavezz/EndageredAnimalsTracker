@@ -9,6 +9,7 @@ function App() {
       <Header />
       <AddSpecies />
       <AddSighting />
+      <AllSightings />
     </div>
   );
 }
