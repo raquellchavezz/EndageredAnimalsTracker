@@ -1,0 +1,122 @@
+[
+	{
+		"id": 2,
+		"nickname": "Joanne",
+		"species_id": 11,
+		"creation_ts": "2022-05-01 00:00:00"
+	},
+	{
+		"id": 3,
+		"nickname": "Ali",
+		"species_id": 3,
+		"creation_ts": "2023-02-25 00:00:00"
+	},
+	{
+		"id": 4,
+		"nickname": "Alvie",
+		"species_id": 19,
+		"creation_ts": "2023-03-12 00:00:00"
+	},
+	{
+		"id": 5,
+		"nickname": "Yurik",
+		"species_id": 6,
+		"creation_ts": "2022-05-23 00:00:00"
+	},
+	{
+		"id": 6,
+		"nickname": "Logan",
+		"species_id": 8,
+		"creation_ts": "2022-10-28 00:00:00"
+	},
+	{
+		"id": 7,
+		"nickname": "Grange",
+		"species_id": 18,
+		"creation_ts": "2022-05-03 00:00:00"
+	},
+	{
+		"id": 8,
+		"nickname": "Karlens",
+		"species_id": 8,
+		"creation_ts": "2023-03-03 00:00:00"
+	},
+	{
+		"id": 9,
+		"nickname": "Marris",
+		"species_id": 14,
+		"creation_ts": "2022-05-06 00:00:00"
+	},
+	{
+		"id": 10,
+		"nickname": "Rube",
+		"species_id": 4,
+		"creation_ts": "2022-11-11 00:00:00"
+	},
+	{
+		"id": 11,
+		"nickname": "Malinde",
+		"species_id": 12,
+		"creation_ts": "2022-07-10 00:00:00"
+	},
+	{
+		"id": 12,
+		"nickname": "Sarge",
+		"species_id": 18,
+		"creation_ts": "2023-01-16 00:00:00"
+	},
+	{
+		"id": 13,
+		"nickname": "Joceline",
+		"species_id": 5,
+		"creation_ts": "2023-02-08 00:00:00"
+	},
+	{
+		"id": 14,
+		"nickname": "Gerald",
+		"species_id": 17,
+		"creation_ts": "2022-04-15 00:00:00"
+	},
+	{
+		"id": 15,
+		"nickname": "Fanni",
+		"species_id": 3,
+		"creation_ts": "2022-10-19 00:00:00"
+	},
+	{
+		"id": 16,
+		"nickname": "Ninnette",
+		"species_id": 7,
+		"creation_ts": "2022-04-21 00:00:00"
+	},
+	{
+		"id": 17,
+		"nickname": "Janeta",
+		"species_id": 14,
+		"creation_ts": "2022-09-29 00:00:00"
+	},
+	{
+		"id": 18,
+		"nickname": "Ora",
+		"species_id": 18,
+		"creation_ts": "2022-11-17 00:00:00"
+	},
+	{
+		"id": 19,
+		"nickname": "Colas",
+		"species_id": 11,
+		"creation_ts": "2022-06-18 00:00:00"
+	},
+	{
+		"id": 20,
+		"nickname": "Henrie",
+		"species_id": 15,
+		"creation_ts": "2022-08-06 00:00:00"
+	},
+	{
+		"id": 1,
+		"nickname": "Hillary",
+		"species_id": 9,
+		"creation_ts": "2022-10-20 00:00:00"
+	}
+]

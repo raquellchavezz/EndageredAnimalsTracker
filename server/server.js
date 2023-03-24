@@ -51,6 +51,8 @@ app.post("/api/species/add", async (req, res) => {
   }
 });
 
+// Add a sighting
+
 // //A put request - Update a student
 // app.put('/api/students/:studentId', cors(), async (req, res) =>{
 //   console.log(req.params);
