@@ -14,6 +14,8 @@ app.get("/", (req, res) => {
   res.json({ message: "Hello from My template ExpressJS" });
 });
 
+// creates an endpoint for the route /api
+
 // create the get request is working
 app.get("/api/species", cors(), async (req, res) => {
   try {
@@ -51,7 +53,7 @@ app.post("/api/species/add", async (req, res) => {
   }
 });
 
-// Add a sighting
+// join statememnt
 
 // //A put request - Update a student
 // app.put('/api/students/:studentId', cors(), async (req, res) =>{
