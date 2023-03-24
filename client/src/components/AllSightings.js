@@ -1,9 +1,16 @@
 //i want this to be my homepage
 import React, { useState, useEffect } from "react";
+import AddSighting from "./AddSightings";
 
 const AllSightings = (props) => {
   const [allSightings, setAllSightings] = useState([]); //state for the list of sightings
-
+  const [sighting, setNewSighting] = useState({
+    time_sighted: "",
+    individual_id: "",
+    location: "",
+    is_healthy: "",
+    email: "",
+  });
   const loadData = () => {
     fetch("http://localhost:8080")
       .then((response) => response.json())
@@ -20,32 +27,48 @@ const AllSightings = (props) => {
     },
     []
   ); // second param '
-};
+
+  /*
+
+
 return (
-  <div>
-    <h1>Sightings Data</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Nickname</th>
-          <th>Time Sighted</th>
-          <th>Location</th>
-          <th>Is Healthy</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((sighting) => (
-          <tr key={sighting.sightings_id}>
-            <td>{sighting.nickname}</td>
-            <td>{sighting.time_sighted}</td>
-            <td>{sighting.location}</td>
-            <td>{sighting.is_healthy ? "Yes" : "No"}</td>
-            <td>{sighting.email}</td>
+          <QuestionCard
+            key={index}
+            question={question} 
+            score={score}
+            setScore={setScore}
+          />
+        );
+*/
+
+  return (
+    //can return scoreboard here
+    <div>
+      <h1>Sightings Data</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Time Sighted</th>
+            <th>Individual ID</th>
+            <th>Location</th>
+            <th>Is Healthy</th>
+            <th>Email</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
-export default MyComponent;
+        </thead>
+        <tbody>
+          {allSightings.map((sighting, index) => (
+            <tr key={index}>
+              <td>{sighting.time_sighted}</td>
+              <td>{sighting.individual_id}</td>
+              <td>{sighting.location}</td>
+              <td>{sighting.is_healthy ? "Yes" : "No"}</td>
+              <td>{sighting.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default AllSightings;

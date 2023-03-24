@@ -83,7 +83,7 @@ app.post("/api/sighting/add", async (req, res) => {
       email: req.body.email,
     };
     const result = await db.query(
-      "INSERT INTO sightings(time_sighted,individual_id, location, is_healthy, email) VALUES($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO sightings (time_sighted,individual_id, location, is_healthy, email) VALUES($1, $2, $3, $4, $5) RETURNING *",
       [
         newSighting.time_sighted,
         newSighting.individual_id,
